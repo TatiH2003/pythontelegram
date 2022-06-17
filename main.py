@@ -53,9 +53,11 @@ def quit_command(update, context):
 
     elif user_wins == comp_wins:
         update.message.reply_text("It`s a tie.. Good luck Next time.")
+        quit()
 
     else:
         update.message.reply_text("You lost the match..Good luck next time.")
+        quit()
 
 
 def error(update, context):
