@@ -2,16 +2,14 @@ from telegram.ext import *
 import response as r
 
 import os
-
-TOKEN ="5412632814:AAGwPC39OmMf0CfY6MjluroUO6dOv_xhI7c"
-
+TOKEN = "5412632814:AAGwPC39OmMf0CfY6MjluroUO6dOv_xhI7c"
 user_wins = 0
 comp_wins = 0
 
 
 def start_command(update, context):
     yourname = update.message.from_user.first_name
-    msg = "Hi " + yourname + "! Welcome to Rock app bot"
+    msg = "Hi "+yourname+"! Welcome to Rock app bot"
     context.bot.send_message(update.message.chat.id, msg)
     msg_2 = "Select your choice (rock/Paper/scissors)."
     context.bot.send_message(update.message.chat.id, msg_2)
@@ -45,7 +43,6 @@ def handle_message(update, context):
     update.message.reply_text("Select your choice (rock/Paper/scissors).")
     print(response)
 
-
 def quit_command(update, context):
     global user_wins, comp_wins
     if user_wins > comp_wins:
@@ -53,11 +50,11 @@ def quit_command(update, context):
 
     elif user_wins == comp_wins:
         update.message.reply_text("It`s a tie.. Good luck Next time.")
-        quit()
+        
 
     else:
         update.message.reply_text("You lost the match..Good luck next time.")
-        quit()
+        
 
 
 def error(update, context):
@@ -73,9 +70,9 @@ def main():
     dp.add_handler(CommandHandler("quit", quit_command))
     dp.add_handler(MessageHandler(Filters.text, handle_message))
 
-    updater.start_webhook(listen="0.0.0.0", port=os.environ.get("PORT", 443),
+    updater.start_webhook(listen="0.0.0.0",port=os.environ.get("PORT", 443),
                           url_path=TOKEN,
-                          webhook_url="https://rock-paper-01.herokuapp.com/" + TOKEN)
+                          webhook_url="https://rock-paper-01.herokuapp.com/"+TOKEN)
     updater.idle()
 
 
