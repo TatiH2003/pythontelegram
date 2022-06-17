@@ -2,7 +2,7 @@ from telegram.ext import *
 import response as r
 
 import os
-TOKEN = os.environ.get("TELEGRAM ID")
+TOKEN = "5412632814:AAGwPC39OmMf0CfY6MjluroUO6dOv_xhI7c"
 user_wins = 0
 comp_wins = 0
 
