@@ -52,10 +52,10 @@ def quit_command(update, context):
         update.message.clearhistory()
     elif user_wins == comp_wins:
         update.message.reply_text("It`s a tie.. Good luck Next time.")
-        update.message.clearhistory()
+        update.message.chat.message_auto_delete_time(5)
     else:
         update.message.reply_text("You lost the match..Good luck next time.")
-        update.message.clearhistory()
+        update.message.chat.message_auto_delete_time(5)
 
 
 def error(update, context):
